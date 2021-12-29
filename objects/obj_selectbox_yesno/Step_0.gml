@@ -57,7 +57,7 @@ if (selectfade && count % 40 == 0) {
 	if (!selectyes) {
 		audio_play_sound(s_generic_voice, 0, false);
 		selectyes = true;
-	} else if (!selectno) {
+	} else if (doselectno && !selectno) {
 		audio_play_sound(s_generic_voice, 0, false);
 		selectno = true;
 	} else {
@@ -82,7 +82,7 @@ if (dokeys) {
 		doend = true;
 	}
 	
-	selectvalue = clamp(selectvalue, 0, 1);
+	selectvalue = clamp(selectvalue, 0, upper_clamp_value);
 }
 
 if (doend) {

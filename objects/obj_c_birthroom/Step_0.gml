@@ -86,7 +86,7 @@ switch (trigger) {
 		break;
 	case 19:
 		audio_play_sound(s_heartbeat, 100, false);
-		instance_create_depth(704, 500, 0, obj_heart);
+		instance_create_depth(704, 500, -10, obj_heart);
 		trigger++;
 		count = 1;
 		break;
@@ -121,6 +121,93 @@ switch (trigger) {
 		trigger++;
 		count = 1;
 		break;
+	case 29:
+		trigger++;
+		count = 1;
+		break;
+	case 31:
+		txtbox5 = instance_create_depth(0, 0, 0, obj_textbox);
+		
+		if (selection1 == 0) {
+			for (var i = 0; i < 10; i++) txtbox5.text[i] = branch1[i];
+		} else {
+			for (var i = 0; i < 10; i++) txtbox5.text[i] = branch2[i];
+		}
+		
+		txtbox5.voice = 101;
+		
+		txtbox5.img_spr = spr_makerman_chat;
+		for (var i = 0; i < 10; i++) txtbox5.img[i] = 1;
+		
+		trigger++;
+		count = 1;
+		break;
+	case 33:
+		trigger++;
+		count = 1;
+		break;
+	case 101:
+		trigger++;
+		count = 1;
+		dodazzles = true;
+		break;
+	case 35:
+		txtbox6 = instance_create_depth(0, 0, 0, obj_textbox);
+		
+		txtbox6.text[0] = "Dr. Maker, the machine is ready.";
+		txtbox6.text[1] = "I think the subject is prepared for release.";
+		txtbox6.text[2] = "Now is the time to do it, sir.";
+		
+		txtbox6.voice = 111;
+		txtbox6.img_spr = spr_donna_chat;
+		for (var i = 0; i < 3; i++) txtbox6.img[i] = 0;
+		
+		trigger++;
+		count = 1;
+		break;
+	case 37:
+		trigger++;
+		count = 1;
+		break;
+	case 39:
+		txtbox7 = instance_create_depth(0, 0, 0, obj_textbox);
+		
+		txtbox7.text[0] = "Very well...";
+		txtbox7.text[1] = "When you're ready, son.";
+		txtbox7.text[2] = "This is a choice that you, alone, have to make.";
+		txtbox7.text[3] = "Do not be afraid.";
+		
+		txtbox7.voice = 101;
+		txtbox7.img_spr = spr_makerman_chat;
+		for (var i = 0; i < 4; i++) txtbox7.img[i] = 1;
+		
+		trigger ++;
+		count = 1;
+		break;
+	case 41:
+		trigger++;
+		count = 1;
+		break;
+	case 43:
+		selbox2 = instance_create_depth(0, 0, 0, obj_selectbox_yesno);
+		selbox2.text = "Step out?";
+		selbox2.doselectno = false;
+		selbox2.select[1] = "";
+		selbox2.upper_clamp_value = 0;
+		
+		trigger++;
+		count = 1;
+		break;
+	case 45:
+		trigger++;
+		count = 1;
+		break;
+	case 47:
+		dorelease = true;
+		
+		trigger++;
+		count = 1;
+		break;
 }
 
 if (trigger == 0 && count > 0 && count % 200 == 0) trigger++;
@@ -137,6 +224,31 @@ if (trigger == 18 && count == 100) trigger++;
 if (trigger == 22 && count == 120) trigger++;
 if (trigger == 24 && txtbox4.scale_toggle == 5) trigger++;
 if (trigger == 26 && count == 60) trigger++;
+if (trigger == 28 && selbox1.scale_toggle == 5) {
+	selection1 = selbox1.selectvalue;
+	trigger++;
+}
+if (trigger == 30 && count == 30) trigger++;
+if (trigger == 32 && txtbox5.scale_toggle == 5) trigger++;
+if (trigger == 34 && count == 30) trigger = 101;
+if (trigger == 102 && count == 120) trigger = 35;
+if (trigger == 36 && txtbox6.scale_toggle == 5) trigger++;
+if (trigger == 38 && count == 30) trigger++;
+if (trigger == 40 && txtbox7.scale_toggle == 5) trigger++;
+if (trigger == 42 && count == 30) trigger++;
+if (trigger == 44 && selbox2.scale_toggle == 5) trigger++;
+if (trigger == 46 && count == 30) trigger++;
+
+if (dorelease) {
+	instance_create_depth(0, 0, -200, obj_release);
+	dorelease = false;
+}
+
+
+if (dodazzles && dazzlecount > 0 && count % 20 == 0) {
+	instance_create_depth(704, 500, 0, obj_dazzles);
+	dazzlecount--;
+}
 
 if (doflash && flashcount > 0 && count % 10 == 0) {
 	instance_create_depth(704, 500, 0, obj_machine_flash);

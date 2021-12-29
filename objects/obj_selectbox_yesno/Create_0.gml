@@ -27,6 +27,9 @@ selectfade = false;
 select[0] = "* YES";
 select[1] = "* NO";
 
+upper_clamp_value = 1;
+doselectno = true;
+
 selectyes = false;
 selectno = false;
 
