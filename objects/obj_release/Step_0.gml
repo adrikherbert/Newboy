@@ -9,7 +9,10 @@ if (fadeout) {
 		newboy_obj = instance_create_depth(704, 500, 50, obj_newboy);
 		newboy_obj.image_xscale = 4;
 		newboy_obj.image_yscale = 4;
+		newboy_obj.move = false;
 		newboy = true;
+		
+		obj_c_birthroom.trigger++;
 	}
 	
 	if (image_alpha > 0) image_alpha -= 0.05;

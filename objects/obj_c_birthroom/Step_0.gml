@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+// if (keyboard_check_pressed(ord("S"))) trigger =  47;
+
 switch (trigger) {
 	case 1:
 		txtbox1 = instance_create_depth(0, 0, 0, obj_textbox);
@@ -208,6 +210,27 @@ switch (trigger) {
 		trigger++;
 		count = 1;
 		break;
+	case 49:
+		trigger++;
+		count = 1;
+		break;
+	case 201:
+		txtbox8 = instance_create_depth(0, 0, 0, obj_textbox);
+		txtbox8.text[0] = "Welcome home, my boy.";
+		txtbox8.img_spr = spr_makerman_chat;
+		txtbox8.img[0] = 1;
+		txtbox8.voice = 101;
+		
+		trigger++;
+		count = 1;
+		break;
+	case 51:
+		audio_play_sound(s_newboy_prologue, 200, true);
+		cam_move = true;
+	
+		trigger++;
+		count = 1;
+		break;
 }
 
 if (trigger == 0 && count > 0 && count % 200 == 0) trigger++;
@@ -238,6 +261,20 @@ if (trigger == 40 && txtbox7.scale_toggle == 5) trigger++;
 if (trigger == 42 && count == 30) trigger++;
 if (trigger == 44 && selbox2.scale_toggle == 5) trigger++;
 if (trigger == 46 && count == 30) trigger++;
+//trigger 48 triggered by obj_release
+if (trigger == 50 && count == 200) trigger = 201;
+if (trigger == 202 && txtbox8.scale_toggle == 5) trigger = 51;
+
+if (cam_move) {
+	cam_vel -= 0.01;
+	cam_y += cam_vel;
+	camera_set_view_pos(cam, 0, cam_y);
+	
+	if (count >= 600) {
+		cam_move = false;
+		instance_create_depth(0, 0, 0, obj_prologue_title);
+	}
+}
 
 if (dorelease) {
 	instance_create_depth(0, 0, -200, obj_release);

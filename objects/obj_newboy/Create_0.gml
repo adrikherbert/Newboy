@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+move = true;
 
 sp = 4;
 go = 0;

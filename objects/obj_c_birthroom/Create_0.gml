@@ -1,5 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+cam = view_camera[0];
+cam_move = false;
+cam_vel = 0;
+cam_y = 0;
+
 lights = false;
 
 doflash = false;
@@ -43,4 +48,8 @@ branch2[7] = "And when you're ready...";
 branch2[8] = "You can venture out yourself.";
 branch2[9] = "Perhaps you'll even... save us.";
 
-audio_play_sound(s_birthroom_ambient, 100, true);
+instance_create_depth(160, 128, 50, obj_lightbeam);
+instance_create_depth(0, 0, 350, obj_sinwav_comp1);
+instance_create_depth(0, 0, 350, obj_sinwav_comp2);
+
+audio_play_sound(s_birthroom_ambient_2, 100, true);

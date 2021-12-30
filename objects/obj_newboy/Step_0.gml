@@ -8,18 +8,24 @@ k_up = keyboard_check_pressed(vk_up);
 go = k_right - k_left;
 vsp = vsp + grav;
 
-if (jump && k_up && vsp > 0) plan_jump = true;
+if (move) {
+	if (jump && k_up && vsp > 0) plan_jump = true;
 
-if (!jump && k_up) {
-	y--;
-	jump = true;
-	vsp = -10;
+	if (!jump && k_up) {
+		y--;
+		jump = true;
+		vsp = -10;
+	}
+
+	next_floor = tilemap_get_at_pixel(floor_tiles, x + go * 10, y);
+	if (next_floor = 0) {
+		x += go * sp;
+	}
+
+	player_animate(go, self);
+
 }
 
-next_floor = tilemap_get_at_pixel(floor_tiles, x + go * 10, y);
-if (next_floor = 0) {
-	x += go * sp;
-}
 
 above_floor = tilemap_get_at_pixel(floor_tiles, x, y+1);
 if (above_floor == 0) {
@@ -35,6 +41,3 @@ if (above_floor == 0) {
 		jump = true;
 	}
 }
-
-
-player_animate(go, self);
