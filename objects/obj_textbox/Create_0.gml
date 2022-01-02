@@ -26,6 +26,7 @@ img_spr = spr_default_chat;
 img[0] = 0;
 
 voice = 0;
+voice_frequency = 6;
 
 docount = true;
 count = 0;

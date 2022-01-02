@@ -39,12 +39,12 @@ if (dotext) {
 		cur_string = string_copy(cur_text_element, 0, l) + "|";
 		l++;
 		
-		if (count % 4 == 0) {
+		if (count % voice_frequency == 0) {
 			var sound;
 			
 			switch (voice) {
 				case 101:
-					sound = choose(s_mm_c6, s_mm_e6, s_mm_g6, s_mm_c7);
+					sound = choose(s_mm_ds4, s_mm_g4, s_mm_as4);
 					break;
 				case 111:
 					sound = choose(s_don_g6, s_don_b6, s_don_cs6);

@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 0,
-  "volume": 0.2,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "s_don_g6.wav",
-  "duration": 0.70771,
+  "soundFile": "s_prologue_intro.wav",
+  "duration": 14.0769157,
   "parent": {
-    "name": "Donna",
-    "path": "folders/Sounds/Voices/Donna.yy",
+    "name": "Bites",
+    "path": "folders/Sounds/Bites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "s_don_g6",
+  "name": "s_prologue_intro",
   "tags": [],
   "resourceType": "GMSound",
 }

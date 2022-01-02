@@ -1,7 +1,7 @@
 {
   "conversionMode": 0,
   "compression": 0,
-  "volume": 0.2,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "s_mm_g6.wav",
-  "duration": 2.480476,
+  "soundFile": "s_makerman_steps.wav",
+  "duration": 12.5240364,
   "parent": {
-    "name": "Makerman",
-    "path": "folders/Sounds/Voices/Makerman.yy",
+    "name": "Bites",
+    "path": "folders/Sounds/Bites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "s_mm_g6",
+  "name": "s_makerman_steps",
   "tags": [],
   "resourceType": "GMSound",
 }

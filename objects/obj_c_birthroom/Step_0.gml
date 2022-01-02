@@ -4,21 +4,24 @@
 // if (keyboard_check_pressed(ord("S"))) trigger =  47;
 
 switch (trigger) {
+	case 301:
+		audio_play_sound(s_prologue_intro, 300, false);
+		trigger++;
+		count = 1;
+		break;
+	case 303:
+		audio_play_sound(s_makerman_steps, 300, false);
+		trigger++;
+		count = 1;
+		break;
 	case 1:
 		txtbox1 = instance_create_depth(0, 0, 0, obj_textbox);
 		txtbox1.text[0] = "Good morning, son...";
-		txtbox1.text[1] = "It's a beautiful day outside.";
-		txtbox1.text[2] = "The most beautiful it's been in a long time.";
-		txtbox1.text[3] = "I've hoped for a long time to share the world with you.";
-		txtbox1.text[4] = "To show you just how beautiful it is.";
-		txtbox1.text[5] = "I hope today is the day.";
-		txtbox1.text[6] = "Please... Please, my boy.";
-		txtbox1.text[7] = "Please wake up.";
 		txtbox1.voice = 101;
 		
 		txtbox1.img_spr = spr_makerman_chat;
 		
-		for (var i = 0; i < 8; i++) txtbox1.img[i] = 0;
+		txtbox1.img[0] = 0;
 		
 		count = 0;
 		trigger++;
@@ -64,14 +67,14 @@ switch (trigger) {
 	case 13:
 		txtbox3 = instance_create_depth(0, 0, 0, obj_textbox);
 		txtbox3.text[0] = "Good morning Dr. Maker.";
-		txtbox3.text[1] = "The subject is doing very well... I'm sure you'll be pleased";
-		txtbox3.text[2] = "No negative system signs, sir.";
-		txtbox3.text[3] = "The subject is ready for assimilation at any time.";
+		txtbox3.text[1] = "The subject is doing very well... No negative system signs, sir.";
+		txtbox3.text[2] = "Everything is running as planned.";
 		txtbox3.voice = 111;
+		txtbox3.voice_frequency = 4;
 		
 		txtbox3.img_spr = spr_donna_chat;
 		
-		for (var i = 0; i < 4; i++) txtbox3.img[i] = 0;
+		for (var i = 0; i < 3; i++) txtbox3.img[i] = 0;
 		
 		trigger++;
 		count = 1;
@@ -100,8 +103,8 @@ switch (trigger) {
 		txtbox4 = instance_create_depth(0, 0, 0, obj_textbox);
 		
 		txtbox4.text[0] = "I hear you, son.";
-		txtbox4.text[1] = "I'm here.";
-		txtbox4.text[2] = "Are you ready to brave this treacherous world?";
+		txtbox4.text[1] = "Your soul is strong.";
+		txtbox4.text[2] = "Are you prepared for what lies ahead?";
 		
 		txtbox4.voice = 101;
 		txtbox4.img_spr = spr_makerman_chat;
@@ -118,7 +121,7 @@ switch (trigger) {
 	case 27:
 		selbox1 = instance_create_depth(0, 0, 0, obj_selectbox_yesno);
 		
-		selbox1.text = "Are you ready to brave this treacherous world?";
+		selbox1.text = "Do you have even a single clue what this guy is talking about?";
 		
 		trigger++;
 		count = 1;
@@ -161,6 +164,8 @@ switch (trigger) {
 		txtbox6.text[2] = "Now is the time to do it, sir.";
 		
 		txtbox6.voice = 111;
+		txtbox6.voice_frequency = 4;
+		
 		txtbox6.img_spr = spr_donna_chat;
 		for (var i = 0; i < 3; i++) txtbox6.img[i] = 0;
 		
@@ -192,7 +197,7 @@ switch (trigger) {
 		break;
 	case 43:
 		selbox2 = instance_create_depth(0, 0, 0, obj_selectbox_yesno);
-		selbox2.text = "Step out?";
+		selbox2.text = "Sorry bud, I'm only giving you one option here. Step out?";
 		selbox2.doselectno = false;
 		selbox2.select[1] = "";
 		selbox2.upper_clamp_value = 0;
@@ -233,7 +238,9 @@ switch (trigger) {
 		break;
 }
 
-if (trigger == 0 && count > 0 && count % 200 == 0) trigger++;
+if (trigger == 0 && count > 0 && count % 200 == 0) trigger = 301;
+if (trigger == 302 && count == 820) trigger++;
+if (trigger == 304 && count == 800) trigger = 1;
 if (trigger == 2 && txtbox1.scale_toggle == 5) trigger++;
 if (trigger == 4 && count % 400 == 0) trigger++;
 if (trigger == 6 && count % 50 == 0) trigger++;
